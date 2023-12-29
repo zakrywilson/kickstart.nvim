@@ -161,6 +161,7 @@ require('lazy').setup({
         icons_enabled = false,
         component_separators = '|',
         section_separators = '',
+        theme = 'auto',
       },
     },
   },
