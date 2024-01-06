@@ -25,13 +25,33 @@ return {
   },
 
   {
-    "ggandor/leap.nvim",
-    config = function()
-      require("leap").add_default_mappings()
-      local leap = require('leap')
-      leap.opts.safe_labels = 'stnuf'
-      leap.opts.labels = 'neioumhtsrafvdjkqgzbNEIOUMHTSRAFVDJ;K/QGZB'
-    end,
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function()
+          require("flash").jump({
+            labels = "eniumlyhkjstrfcvpwxbgqz",
+          })
+        end,
+        desc = "Flash" },
+      { "<leader>j", mode = { "n" , "x", "o" }, function()
+          require("flash").jump({
+            labels = "strcfavxpwqgbzeniumyljk",
+            search = { mode = "search", forward = true, max_length = 0, wrap = false, multi_window = false },
+            label = { after = { 0, 0 } },
+            pattern = "^"
+          })
+        end, desc = "Flash down"},
+      { "<leader>k", mode = { "n", "x", "o" }, function()
+          require("flash").jump({
+            labels = "strcfavxpwqgbzeniumyljk",
+            search = { mode = "search", forward = false, max_length = 0, wrap = false, multi_window = false },
+            label = { after = { 0, 0 } },
+            pattern = "^"
+          })
+        end, desc = "Flash up"},
+    },
   },
 
   {
