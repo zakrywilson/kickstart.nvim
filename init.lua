@@ -261,8 +261,6 @@ vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 
-require('zach.mappings')
-
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -430,7 +428,7 @@ vim.defer_fn(function()
           ['<leader>ta'] = '@parameter.inner',
         },
         swap_previous = {
-          ['<leader>TA'] = '@parameter.inner',
+          ['<leader>tA'] = '@parameter.inner',
         },
       },
     },
