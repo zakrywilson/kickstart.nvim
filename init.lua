@@ -554,6 +554,12 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+require('go').setup{
+  lsp_cfg = false
+}
+local cfg = require('go.lsp').config()
+require('lspconfig').gopls.setup(cfg)
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
