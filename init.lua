@@ -220,7 +220,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  { import = 'custom.plugins' },
+  { import = 'zach.lazy' },
 }, {})
 
 -- [[ Setting options ]]
@@ -261,7 +261,7 @@ vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 
-require('custom.mappings')
+require('zach.mappings')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
