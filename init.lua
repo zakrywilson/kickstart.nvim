@@ -498,7 +498,12 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {
+    gopls_cmd = {'~/go/bin/gopls'},
+    fillstruct = 'gopls',
+    dap_debug = true,
+    dap_debug_gui = true
+  },
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
@@ -539,11 +544,14 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-require('go').setup{
-  lsp_cfg = false
-}
-local cfg = require('go.lsp').config()
-require('lspconfig').gopls.setup(cfg)
+-- go.nvim setup without default LSP configuration
+-- require('go').setup{
+--   lsp_cfg = false
+-- }
+-- local cfg = require('go.lsp').config()
+--
+-- -- Set up gopls with go.nvim's configuration
+-- require('lspconfig').gopls.setup(cfg)
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`

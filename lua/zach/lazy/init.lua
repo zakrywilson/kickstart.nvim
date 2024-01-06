@@ -7,10 +7,9 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup({
-        -- lsp_keymaps = false,
-      })
+      require("go").setup({})
 
+      -- Format on save
       local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*.go",
@@ -58,6 +57,8 @@ return {
       require('illuminate').configure(opts)
     end,
   },
+
+  { 'nvim-tree/nvim-web-devicons' },
 
   -- Themes
   { "projekt0n/github-nvim-theme" },
