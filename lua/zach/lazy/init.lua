@@ -103,4 +103,8 @@ return {
       vim.g.gruvbox_material_palette = 'material'
     end
   },
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000,
+  },
 }
