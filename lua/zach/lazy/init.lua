@@ -61,17 +61,35 @@ return {
   { 'nvim-tree/nvim-web-devicons' },
 
   -- Themes
-  { "projekt0n/github-nvim-theme" },
-  { "savq/melange-nvim" },
-  { 'rose-pine/neovim', name = 'rose-pine' },
-  { "jacksonludwig/vim-earl-grey" },
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github",
+    priority = 1000,
+  },
+  {
+    "savq/melange-nvim",
+    name = "melange",
+    priority = 1000,
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+  },
+  {
+    "jacksonludwig/vim-earl-grey",
+    name = "vim-earl-grey",
+    priority = 1000,
+  },
   {
     "EdenEast/nightfox.nvim",
+    name = "nightfox",
+    priority = 1000,
     config = function()
       require("nightfox").setup({
         options = {
           styles = {
-            comments = 'italic', -- change style of comments to be italic
+            comments = "italic", -- change style of comments to be italic
           },
           inverse = {
             match_paren = true, -- inverse the highlighting of match_parens
@@ -96,16 +114,17 @@ return {
   },
   {
     "sainnhe/gruvbox-material",
+    priority = 1000,
     config = function()
-      vim.g.gruvbox_material_background = 'soft'
+      vim.g.gruvbox_material_background = "soft"
       vim.g.gruvbox_material_enable_bold = 1
       vim.g.gruvbox_material_enable_italic = 1
-      vim.g.gruvbox_material_visual = 'red background'
-      vim.g.gruvbox_material_palette = 'material'
+      vim.g.gruvbox_material_visual = "red background"
+      vim.g.gruvbox_material_palette = "material"
     end
   },
   {
-    'navarasu/onedark.nvim',
+    "navarasu/onedark.nvim",
     priority = 1000,
   },
 }
