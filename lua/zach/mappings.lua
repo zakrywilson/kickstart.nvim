@@ -1,3 +1,6 @@
+-- Esc disables highlighting
+vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
+
 -- Select all
 vim.keymap.set('n', '<leader>a', '<esc>GVgg', { noremap = true, silent = true })
 
