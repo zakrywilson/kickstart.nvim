@@ -11,3 +11,6 @@ vim.keymap.set('v', "<leader>Y", [[$h"+y]], { silent = true })      -- to end of
 
 -- Paste without overwriting register 0
 vim.keymap.set('x', "<leader>p", [["_dP]])
+
+-- Delete without overwriting register
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
