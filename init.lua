@@ -510,8 +510,9 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  html = { filetypes = { 'html' } },
-
+  templ = {},
+  html = { filetypes = { 'html', 'templ' } },
+  htmx = { filetypes = { 'html', 'templ' } },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

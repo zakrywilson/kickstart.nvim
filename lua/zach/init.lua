@@ -1,4 +1,5 @@
 require("zach.options")
 require("zach.appearance")
 require("zach.mappings")
+require("zach.auto")
 require("zach.filetypes")
