@@ -3,15 +3,15 @@
 -- Based on source: https://felix-kling.de/blog/2021/linux-toggle-dark-mode.html#neovim
 
 local function fileExists(filepath)
-    local expandedPath = vim.fn.expand(filepath)
-    local f = io.open(expandedPath, "r")
+  local expandedPath = vim.fn.expand(filepath)
+  local f = io.open(expandedPath, "r")
 
-    if f ~= nil then
-        io.close(f)
-        return true
-    else
-        return false
-    end
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
 end
 
 local filepath = vim.fn.expand('$TMSYNC_HOME/nvim-colorscheme.vim')
