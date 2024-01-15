@@ -1,7 +1,7 @@
 return {
   {
     "ray-x/go.nvim",
-    dependencies = {  -- optional packages
+    dependencies = { -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
@@ -9,8 +9,8 @@ return {
     config = function()
       require("go").setup({})
     end,
-    event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
+    event = { "CmdlineEnter" },
+    ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
 
@@ -19,28 +19,42 @@ return {
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "s", mode = { "n", "x", "o" }, function()
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
           require("flash").jump({
             labels = "eniumlyhkjstrfcvpwxbgqz",
           })
         end,
-        desc = "Flash" },
-      { "<leader>j", mode = { "n" , "x", "o" }, function()
+        desc = "Flash"
+      },
+      {
+        "<leader>j",
+        mode = { "n", "x", "o" },
+        function()
           require("flash").jump({
             labels = "strcfavxpwqgbzeniumyljk",
             search = { mode = "search", forward = true, max_length = 0, wrap = false, multi_window = false },
             label = { after = { 0, 0 } },
             pattern = "^"
           })
-        end, desc = "Flash down"},
-      { "<leader>k", mode = { "n", "x", "o" }, function()
+        end,
+        desc = "Flash down"
+      },
+      {
+        "<leader>k",
+        mode = { "n", "x", "o" },
+        function()
           require("flash").jump({
             labels = "strcfavxpwqgbzeniumyljk",
             search = { mode = "search", forward = false, max_length = 0, wrap = false, multi_window = false },
             label = { after = { 0, 0 } },
             pattern = "^"
           })
-        end, desc = "Flash up"},
+        end,
+        desc = "Flash up"
+      },
     },
   },
 
