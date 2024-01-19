@@ -17,3 +17,6 @@ vim.keymap.set('x', "<Leader>p", [["_dP]])
 
 -- Delete without overwriting register
 vim.keymap.set({ 'n', 'v' }, '<Leader>d', [["_d]])
+
+-- Netrw
+vim.keymap.set('n', '<Leader>se', '<Cmd>Explore<CR>', { noremap = true, silent = true })
