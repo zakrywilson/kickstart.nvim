@@ -6,9 +6,19 @@
 return {
   'neovim/nvim-lspconfig',
   config = function()
-    -- Switch for controlling whether you want autoformatting.
-    --  Use :KickstartFormatToggle to toggle autoformatting on or off
     local format_is_enabled = true
+    local filetype_exclusion_list = { 'cpp', 'c' }
+
+    local function is_excluded(bufnr)
+      local buf_ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+      for _, ft in ipairs(filetype_exclusion_list) do
+        if buf_ft == ft then
+          return true
+        end
+      end
+      return false
+    end
+
     vim.api.nvim_create_user_command('KickstartFormatToggle', function()
       format_is_enabled = not format_is_enabled
       print('Setting autoformatting to: ' .. tostring(format_is_enabled))
@@ -38,6 +48,9 @@ return {
         local client_id = args.data.client_id
         local client = vim.lsp.get_client_by_id(client_id)
         local bufnr = args.buf
+
+        -- Update the formatting state based on the buffer's filetype
+        format_is_enabled = not is_excluded(bufnr)
 
         -- Only attach to clients that support document formatting
         if not client.server_capabilities.documentFormattingProvider then
