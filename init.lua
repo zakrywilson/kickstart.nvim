@@ -510,6 +510,13 @@ local servers = {
     dap_debug = true,
     dap_debug_gui = true
   },
+  svelte = {
+    plugin = {
+      typescript = {
+        enable = false,
+      },
+    },
+  },
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
