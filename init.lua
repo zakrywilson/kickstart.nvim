@@ -523,9 +523,16 @@ local servers = {
     dap_debug_gui = true
   },
   svelte = {
-    plugin = {
-      typescript = {
-        enable = false,
+    settings = {
+      svelte = {
+        plugin = {
+          typescript = {
+            enable = true,
+            diagnostics = {
+              enable = true,
+            },
+          },
+        },
       },
     },
   },
