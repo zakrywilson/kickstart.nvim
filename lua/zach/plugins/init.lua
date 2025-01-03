@@ -13,7 +13,12 @@ return {
     ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
-
+  {
+    "Olical/conjure",
+    config = function()
+      vim.g["conjure#mapping#enable_defaults"] = false
+    end,
+  },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
