@@ -7,7 +7,7 @@ return {
   'neovim/nvim-lspconfig',
   config = function()
     local format_is_enabled = true
-    local filetype_exclusion_list = { 'cpp', 'c' }
+    local filetype_exclusion_list = { 'cpp', 'c', 'templ' }
 
     local function is_excluded(bufnr)
       local buf_ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
