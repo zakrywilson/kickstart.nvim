@@ -164,4 +164,8 @@ return {
     "navarasu/onedark.nvim",
     priority = 1000,
   },
+  {
+    "rmehri01/onenord.nvim",
+    priority = 1000,
+  },
 }
