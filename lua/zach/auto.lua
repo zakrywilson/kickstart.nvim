@@ -28,3 +28,15 @@ vim.api.nvim_create_autocmd("FileType", {
             { desc = "Evaluate Clojure File with Conjure", buffer = true })
     end,
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        vim.cmd([[
+          highlight Comment cterm=italic gui=italic
+          highlight Normal guibg=none
+          highlight NonText guibg=none
+          highlight Normal ctermbg=none
+          highlight NonText ctermbg=none
+        ]])
+    end,
+})

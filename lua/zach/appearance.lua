@@ -11,5 +11,3 @@ vim.cmd([[
 
 -- TODO: Add flags for default values
 require('zach.tmsync')
-
-vim.cmd([[ highlight Comment cterm=italic gui=italic ]])
