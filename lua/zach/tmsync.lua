@@ -15,11 +15,8 @@ local function fileExists(filepath)
 end
 
 local filepath = vim.fn.expand('$TMSYNC_HOME/nvim-colorscheme.vim')
-if fileExists(filepath) then
-  -- TODO: Remove this print statement
-  print("File exists")
-else
-  print("File does not exist: " .. filepath)
+if not fileExists(filepath) then
+  print("File does not exist: '" .. filepath .. "'")
   return
 end
 
@@ -35,7 +32,7 @@ end
 
 local function watch_file(fname)
   if w == nil then
-    print("file watcher is nil")
+    print("Error: file watcher is nil")
     return
   end
 
