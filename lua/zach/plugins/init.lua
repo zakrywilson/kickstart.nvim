@@ -100,11 +100,13 @@ return {
     "projekt0n/github-nvim-theme",
     name = "github",
     priority = 1000,
-  },
-  {
-    "savq/melange-nvim",
-    name = "melange",
-    priority = 1000,
+    config = function()
+      require('github-theme').setup({
+        options = {
+          transparent = true,
+        },
+      })
+    end,
   },
   {
     "rose-pine/neovim",
@@ -115,6 +117,7 @@ return {
         styles = {
           bold = true,
           italic = true,
+          transparency = true,
         },
       })
     end,
@@ -125,12 +128,39 @@ return {
     priority = 1000,
   },
   {
+    "zenbones-theme/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+    -- you can set set configuration options here
+    config = function()
+      vim.g.zenbones_darken_comments = 45
+      vim.g.zenwritten_transparent_background = true
+      vim.g.neobones_transparent_background = true
+      vim.g.vimbones_transparent_background = true
+      vim.g.rosebones_transparent_background = true
+      vim.g.forestbones_transparent_background = true
+      vim.g.nordbones_transparent_background = true
+      vim.g.tokyobones_transparent_background = true
+      vim.g.seoulbones_transparent_background = true
+      vim.g.duckbones_transparent_background = true
+      vim.g.zenburned_transparent_background = true
+      vim.g.kanagawabones_transparent_background = true
+      vim.g.randombones_transparent_background = true
+      vim.cmd.colorscheme('zenbones')
+    end
+  },
+  {
     "EdenEast/nightfox.nvim",
     name = "nightfox",
     priority = 1000,
     config = function()
       require("nightfox").setup({
         options = {
+          transparent = true,
           styles = {
             comments = "italic", -- change style of comments to be italic
           },
@@ -147,13 +177,35 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("everforest").setup()
+      require("everforest").setup({
+        background = "medium",
+        transparent_background_level = 2,
+        italics = true,
+        disable_italic_comments = false,
+        sign_column_background = "none",
+        ui_contrast = "low",
+        dim_inactive_windows = false,
+        diagnostic_text_highlight = false,
+        diagnostic_virtual_text = "coloured",
+        diagnostic_line_highlight = false,
+        spell_foreground = false,
+        show_eob = true,
+        float_style = "bright",
+        inlay_hints_background = "none",
+        on_highlights = function(_, _) end,
+        colours_override = function(_) end,
+      })
     end,
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        transparent_background = true,
+      })
+    end,
   },
   {
     "sainnhe/gruvbox-material",
@@ -164,14 +216,69 @@ return {
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_visual = "red background"
       vim.g.gruvbox_material_palette = "material"
+      vim.g.gruvbox_material_transparent_background = 1
     end
   },
   {
     "navarasu/onedark.nvim",
     priority = 1000,
+    config = function()
+      require("onedark").setup({
+        transparent = true,
+        term_colors = true,
+        code_style = {
+          comments  = 'italic',
+          functions = 'bold',
+        },
+        lualine = {
+          transparent = true,
+        },
+      })
+    end,
+  },
+  {
+    "RRethy/base16-nvim",
+    priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    config = function()
+      require('kanagawa').setup({
+        transparent = true,
+        colors = {
+          palette = {
+            lotusWhite0 = "#e8e5d8",
+            lotusWhite1 = "#f0ede3",
+            lotusWhite2 = "#f5f3ec",
+            lotusWhite3 = "#faf9f5",
+            lotusWhite4 = "#f3f0e4",
+            lotusWhite5 = "#efe9d6",
+          },
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = "none",
+              }
+            },
+          }
+        }
+      })
+    end,
+  },
+  {
+    "cocopon/iceberg.vim",
+    priority = 1000,
   },
   {
     "rmehri01/onenord.nvim",
     priority = 1000,
+    config = function()
+      require('onenord').setup({
+        disable = {
+          background = true,
+        },
+      })
+    end,
   },
 }
