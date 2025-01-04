@@ -395,6 +395,10 @@ vim.defer_fn(function()
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
 
+    -- Modules and Ignore Install fields
+    modules = {},        -- Define explicitly if needed, typically left as an empty table
+    ignore_install = {}, -- Leave empty or specify languages to ignore during installation
+
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false, -- required for vrischmann/tree-sitter-templ
