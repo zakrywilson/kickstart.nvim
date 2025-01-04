@@ -22,6 +22,13 @@ end
 
 local function reload()
   vim.cmd('source ' .. filepath)
+  vim.cmd([[
+    highlight Comment cterm=italic gui=italic
+    highlight Normal guibg=none
+    highlight NonText guibg=none
+    highlight Normal ctermbg=none
+    highlight NonText ctermbg=none
+  ]])
 end
 
 local w, err = vim.loop.new_fs_event()
