@@ -34,6 +34,7 @@ return {
         "s",
         mode = { "n", "x", "o" },
         function()
+          ---@diagnostic disable-next-line: missing-fields
           require("flash").jump({
             labels = "eniumlyhkjstrfcvpwxbgqz",
           })
@@ -44,6 +45,7 @@ return {
         "<leader>j",
         mode = { "n", "x", "o" },
         function()
+          ---@diagnostic disable-next-line: missing-fields
           require("flash").jump({
             labels = "strcfavxpwqgbzeniumyljk",
             search = { mode = "search", forward = true, max_length = 0, wrap = false, multi_window = false },
@@ -57,6 +59,7 @@ return {
         "<leader>k",
         mode = { "n", "x", "o" },
         function()
+          ---@diagnostic disable-next-line: missing-fields
           require("flash").jump({
             labels = "strcfavxpwqgbzeniumyljk",
             search = { mode = "search", forward = false, max_length = 0, wrap = false, multi_window = false },
@@ -113,6 +116,7 @@ return {
     name = "rose-pine",
     priority = 1000,
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("rose-pine").setup({
         styles = {
           bold = true,
