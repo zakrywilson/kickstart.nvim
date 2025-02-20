@@ -14,3 +14,5 @@ set showbreak=↪
 
 " Break on entire word
 set wrap linebreak
+
+set conceallevel=2
