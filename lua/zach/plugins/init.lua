@@ -293,8 +293,12 @@ return {
     "rebelot/kanagawa.nvim",
     priority = 1000,
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require('kanagawa').setup({
         transparent = true,
+        commentStyle = { italic = true },
+        functionStyle = { bold = true },
+        keywordStyle = { italic = true },
         colors = {
           palette = {
             lotusWhite0 = "#e8e5d8",
@@ -326,6 +330,11 @@ return {
       require('onenord').setup({
         disable = {
           background = true,
+        },
+        styles = {
+          comments = "italic",
+          keywords = "italic",
+          functions = "bold",
         },
       })
     end,
