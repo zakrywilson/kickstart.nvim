@@ -19,12 +19,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callba
 -- Clojure + Conjure keymappings
 -- Key mapping for Conjure evaluation, specific to Clojure files
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "clojure",
+    pattern = { "clojure", "janet" },
     callback = function()
-        vim.keymap.set("n", "<leader>ce", "<cmd>ConjureEval<cr>",
+        vim.keymap.set("n", "<leader>ce", ":ConjureEval<cr>",
             { desc = "Evaluate Clojure with Conjure", buffer = true })
-        vim.keymap.set("v", "<leader>ce", ":ConjureEval<cr>", { desc = "Evaluate selection with Conjure", buffer = true })
-        vim.keymap.set("n", "<leader>cef", "<cmd>ConjureEvalFile<cr>",
+        vim.keymap.set("v", "<leader>ce", ":ConjureEval<cr>",
+            { desc = "Evaluate selection with Conjure", buffer = true })
+        vim.keymap.set("n", "<leader>cef", ":ConjureEvalFile<cr>",
             { desc = "Evaluate Clojure File with Conjure", buffer = true })
     end,
 })

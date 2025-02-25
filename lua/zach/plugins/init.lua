@@ -23,6 +23,9 @@ return {
     end,
   },
   {
+    "bakpakin/janet.vim",
+  },
+  {
     "Olical/conjure",
     config = function()
       vim.g["conjure#mapping#enable_defaults"] = false
