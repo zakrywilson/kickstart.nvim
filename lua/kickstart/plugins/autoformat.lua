@@ -7,7 +7,9 @@ return {
   'neovim/nvim-lspconfig',
   config = function()
     local format_is_enabled = true
-    local filetype_exclusion_list = { 'cpp', 'c', 'templ' }
+    -- Ignore Lua because it causes the :changes list to be invalid,
+    -- which breaks motions like g;
+    local filetype_exclusion_list = { 'cpp', 'c', 'templ', 'lua' }
 
     local function is_excluded(bufnr)
       local buf_ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
