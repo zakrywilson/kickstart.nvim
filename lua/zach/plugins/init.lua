@@ -26,6 +26,18 @@ return {
     "bakpakin/janet.vim",
   },
   {
+    "junegunn/vim-easy-align",
+    lazy = true,
+    keys = {
+      { "ga", mode = "n" },
+      { "ga", mode = "x" },
+    },
+    config = function()
+      vim.cmd([[nmap ga <Plug>(EasyAlign)]])
+      vim.cmd([[xmap ga <Plug>(EasyAlign)]])
+    end
+  },
+  {
     "Olical/conjure",
     config = function()
       vim.g["conjure#mapping#enable_defaults"] = false
