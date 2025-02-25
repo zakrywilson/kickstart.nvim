@@ -282,6 +282,7 @@ return {
         code_style = {
           comments  = 'italic',
           functions = 'bold',
+          keywords  = 'italic',
         },
         lualine = {
           transparent = true,
