@@ -203,8 +203,13 @@ return {
       require("nightfox").setup({
         options = {
           transparent = true,
+          terminal_colors = true,
           styles = {
-            comments = "italic", -- change style of comments to be italic
+            comments = "italic",
+            keywords = "italic",
+            conditionals = "italic",
+            types = "italic",
+            functions = "bold",
           },
           inverse = {
             match_paren = true, -- inverse the highlighting of match_parens
