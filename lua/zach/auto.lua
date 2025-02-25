@@ -21,11 +21,17 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callba
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "clojure", "janet" },
     callback = function()
-        vim.keymap.set("n", "<leader>ce", ":ConjureEval<cr>",
+        vim.keymap.set("n", "<leader>cc", "<cmd>ConjureConnect<cr>",
+            { desc = "Connect to Conjure", buffer = true })
+        vim.keymap.set("n", "<leader>cls", "<cmd>ConjureLogSplit<cr>",
+            { desc = "Open Conjure Log (split)", buffer = true })
+        vim.keymap.set("n", "<leader>clsv", "<cmd>ConjureLogVSplit<cr>",
+            { desc = "Open Conjure Log (vertical split)", buffer = true })
+        vim.keymap.set("n", "<leader>ce", "<cmd>ConjureEval<cr>",
             { desc = "Evaluate Clojure with Conjure", buffer = true })
-        vim.keymap.set("v", "<leader>ce", ":ConjureEval<cr>",
+        vim.keymap.set("v", "<leader>ce", ":ConjureEvalVisual<cr>",
             { desc = "Evaluate selection with Conjure", buffer = true })
-        vim.keymap.set("n", "<leader>cef", ":ConjureEvalFile<cr>",
+        vim.keymap.set("n", "<leader>cef", "<cmd>ConjureEvalFile<cr>",
             { desc = "Evaluate Clojure File with Conjure", buffer = true })
     end,
 })
