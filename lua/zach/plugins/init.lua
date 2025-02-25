@@ -251,6 +251,12 @@ return {
     config = function()
       require("catppuccin").setup({
         transparent_background = true,
+        term_colors = true,
+        styles = {
+          comments = { "italic" },
+          functions = { "bold" },
+          keywords = { "italic" },
+        },
       })
     end,
   },
