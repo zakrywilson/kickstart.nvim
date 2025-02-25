@@ -14,11 +14,10 @@ return {
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
   {
-    dir = "/Users/zach/Development/tmsync/extra/nvim/tmsync.nvim",
+    dir = "~/Development/tmsync/extra/nvim/tmsync.nvim",
     config = function()
       require("tmsync").setup({
         filepath = vim.fn.expand("$TMSYNC_HOME") .. "/nvim-colorscheme.vim",
-        -- filepath = "/Users/zach/.config/tmsync/nvim-colorscheme.vim",
       })
     end,
   },
