@@ -381,13 +381,24 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sT', ':GrepTodos<cr>', { desc = '[S]earch for [T]odos on Git Root' })
 vim.keymap.set('n', '<leader>th', require('telescope.builtin').colorscheme, { desc = '[Th]eme' })
 vim.keymap.set('n', '<leader>sx', require('telescope.builtin').diagnostics, { desc = '[S]earch Diagnosti[x]' })
+vim.keymap.set('n', '<leader>sn', function()
+  require('telescope.builtin').find_files({
+    prompt_title = 'Search Nvim',
+    cwd = vim.fn.expand('$DOTDIR/config/nvim'),
+  })
+end, { desc = '[S]earch [N]vim' })
+vim.keymap.set('n', '<leader>sgn', function()
+  require('telescope.builtin').live_grep({
+    prompt_title = 'Live Grep Nvim',
+    cwd = vim.fn.expand('$DOTDIR/config/nvim'),
+  })
+end, { desc = '[S]earch [G]rep in [N]vim' })
 vim.keymap.set('n', '<leader>sd', function()
   require('telescope.builtin').find_files({
     prompt_title = 'Search Dotfiles',
     cwd = vim.fn.expand('$DOTDIR'),
   })
 end, { desc = '[S]earch [D]otfiles' })
-
 vim.keymap.set('n', '<leader>sgd', function()
   require('telescope.builtin').live_grep({
     prompt_title = 'Live Grep Dotfiles',
