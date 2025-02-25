@@ -290,10 +290,6 @@ return {
     end,
   },
   {
-    "RRethy/base16-nvim",
-    priority = 1000,
-  },
-  {
     "rebelot/kanagawa.nvim",
     priority = 1000,
     config = function()
