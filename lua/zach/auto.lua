@@ -47,3 +47,28 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         ]])
     end,
 })
+
+-- Create an autocommand for Markdown
+-- where <leader>hd creates an H3 header with the date.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    local function insert_markdown_header_with_date()
+      -- E.g., "Wed, Mar 15, 2023"
+      local today = os.date("%a, %b %d, %Y")
+      local header = "### " .. today
+
+      -- Get the current cursor position (row is 0-indexed in Lua API)
+      local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+      row = row - 1
+
+      -- Insert the header and an empty line below at the current line
+      vim.api.nvim_buf_set_lines(0, row, row, false, { header, "" })
+
+      -- Move the cursor to the new empty line (adjusting back to 1-indexed)
+      vim.api.nvim_win_set_cursor(0, { row + 2, 0 })
+    end
+
+    vim.keymap.set("n", "<leader>hd", insert_markdown_header_with_date, { buffer = true, silent = true })
+  end,
+})
