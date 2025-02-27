@@ -10,3 +10,6 @@ vim.opt.softtabstop = 4
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath("config") .. "/undo"
 vim.o.directory = vim.fn.stdpath("config") .. "/swap"
+
+-- Spell file
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"

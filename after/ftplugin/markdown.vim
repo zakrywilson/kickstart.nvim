@@ -16,3 +16,6 @@ set showbreak=↪
 set wrap linebreak
 
 set conceallevel=2
+
+" Enable spell checking
+set spell
