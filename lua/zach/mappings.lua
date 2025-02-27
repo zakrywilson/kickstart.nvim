@@ -20,3 +20,14 @@ vim.keymap.set({ 'n', 'v' }, '<Leader>d', [["_d]])
 
 -- Netrw
 vim.keymap.set('n', '<Leader>se', '<Cmd>Explore<CR>', { noremap = true, silent = true })
+
+-- Open current file in Finder.
+function OpenInFinder()
+    local current_path = vim.fn.expand('%:p')
+    if current_path == "" then
+        current_path = vim.fn.getcwd()
+    end
+    local escaped_path = vim.fn.shellescape(current_path)
+    vim.fn.system('open -R ' .. escaped_path)
+end
+vim.api.nvim_set_keymap('n', '<Leader>of', ':lua OpenInFinder()<CR>', { noremap = true, silent = true })
