@@ -1,4 +1,4 @@
-set wrap linebreak nolist
+set wrap linebreak
 set tabstop=4
 set shiftwidth=4
 
