@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.keymap.set("n", "<leader>cc", "<cmd>ConjureConnect<cr>",
             { desc = "Connect to Conjure", buffer = true })
-        vim.keymap.set("n", "<leader>cls", "<cmd>ConjureLogSplit<cr>",
+        vim.keymap.set("n", "<leader>clsx", "<cmd>ConjureLogSplit<cr>",
             { desc = "Open Conjure Log (split)", buffer = true })
         vim.keymap.set("n", "<leader>clsv", "<cmd>ConjureLogVSplit<cr>",
             { desc = "Open Conjure Log (vertical split)", buffer = true })
