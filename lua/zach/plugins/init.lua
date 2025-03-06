@@ -13,6 +13,11 @@ return {
     ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
+  -- TODO: Replace this with our own implementation.
+  {
+    "nfrid/markdown-togglecheck",
+    dependencies = "nfrid/treesitter-utils",
+  },
   {
     dir = "~/Development/tmsync/extra/nvim/tmsync.nvim",
     config = function()

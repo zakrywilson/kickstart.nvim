@@ -72,3 +72,21 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>hd", insert_markdown_header_with_date, { buffer = true, silent = true })
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    -- Markdown checklist toggling
+    local function toggle()
+      vim.go.operatorfunc = "v:lua.require'markdown-togglecheck'.toggle"
+      return 'g@l'
+    end
+
+    local function toggle_box()
+      vim.go.operatorfunc = "v:lua.require'markdown-togglecheck'.toggle_box"
+      return 'g@l'
+    end
+
+    vim.keymap.set('n', '<leader>cc', toggle, { expr = true, desc = 'Toggle [C]he[c]kmark' })
+  end,
+})
