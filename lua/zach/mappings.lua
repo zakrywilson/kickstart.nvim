@@ -19,6 +19,9 @@ vim.keymap.set('x', "<Leader>p", [["_dP]], { desc = "[P]aste w/o overwriting reg
 -- Delete without overwriting register
 vim.keymap.set({ 'n', 'v' }, '<Leader>d', [["_d]], { desc = "[D]elete w/o overwriting register" })
 
+-- Telescope + Grep in buffer
+vim.keymap.set({ 'n', 'v' }, '<Leader>sgb', '<Cmd>Telescope current_buffer_fuzzy_find<CR>', { desc = "[S]earch [G]reg [B]uffer" })
+
 -- Netrw
 vim.keymap.set('n', '<Leader>se', '<Cmd>Explore<CR>', { noremap = true, silent = true, desc = "[E]xplore" })
 
