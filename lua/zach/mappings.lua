@@ -22,6 +22,9 @@ vim.keymap.set({ 'n', 'v' }, '<Leader>d', [["_d]], { desc = "[D]elete w/o overwr
 -- Telescope + Grep in buffer
 vim.keymap.set({ 'n', 'v' }, '<Leader>sgb', '<Cmd>Telescope current_buffer_fuzzy_find<CR>', { desc = "[S]earch [G]reg [B]uffer" })
 
+-- Search in current working directory
+vim.keymap.set({ 'n', 'v', }, '<leader>s.', [[<Cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('%:p:h') })<CR>]], { noremap = true, silent = true, desc = "[S]earch in [.]" })
+
 -- Netrw
 vim.keymap.set('n', '<Leader>se', '<Cmd>Explore<CR>', { noremap = true, silent = true, desc = "[E]xplore" })
 
