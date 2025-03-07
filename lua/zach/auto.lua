@@ -1,17 +1,17 @@
 -- source: https://templ.guide/commands-and-tools/ide-support#formatting
 local templ_format = function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    local filename = vim.api.nvim_buf_get_name(bufnr)
-    local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+  local bufnr = vim.api.nvim_get_current_buf()
+  local filename = vim.api.nvim_buf_get_name(bufnr)
+  local cmd = "templ fmt " .. vim.fn.shellescape(filename)
 
-    vim.fn.jobstart(cmd, {
-        on_exit = function()
-            -- Reload the buffer only if it's still the current buffer
-            if vim.api.nvim_get_current_buf() == bufnr then
-                vim.cmd('e!')
-            end
-        end,
-    })
+  vim.fn.jobstart(cmd, {
+    on_exit = function()
+      -- Reload the buffer only if it's still the current buffer
+      if vim.api.nvim_get_current_buf() == bufnr then
+        vim.cmd("e!")
+      end
+    end,
+  })
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = templ_format })
@@ -19,33 +19,47 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callba
 -- Clojure + Conjure keymappings
 -- Key mapping for Conjure evaluation, specific to Clojure files
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "clojure", "janet" },
-    callback = function()
-        vim.keymap.set("n", "<leader>cc", "<cmd>ConjureConnect<cr>",
-            { desc = "Connect to Conjure", buffer = true })
-        vim.keymap.set("n", "<leader>clsx", "<cmd>ConjureLogSplit<cr>",
-            { desc = "Open Conjure Log (split)", buffer = true })
-        vim.keymap.set("n", "<leader>clsv", "<cmd>ConjureLogVSplit<cr>",
-            { desc = "Open Conjure Log (vertical split)", buffer = true })
-        vim.keymap.set("n", "<leader>ce", "<cmd>ConjureEval<cr>",
-            { desc = "Evaluate Clojure with Conjure", buffer = true })
-        vim.keymap.set("v", "<leader>ce", ":ConjureEvalVisual<cr>",
-            { desc = "Evaluate selection with Conjure", buffer = true })
-        vim.keymap.set("n", "<leader>cef", "<cmd>ConjureEvalFile<cr>",
-            { desc = "Evaluate Clojure File with Conjure", buffer = true })
-    end,
+  pattern = { "clojure", "janet" },
+  callback = function()
+    vim.keymap.set("n", "<leader>cc", "<cmd>ConjureConnect<cr>", { desc = "Connect to Conjure", buffer = true })
+    vim.keymap.set(
+      "n",
+      "<leader>clsx",
+      "<cmd>ConjureLogSplit<cr>",
+      { desc = "Open Conjure Log (split)", buffer = true }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>clsv",
+      "<cmd>ConjureLogVSplit<cr>",
+      { desc = "Open Conjure Log (vertical split)", buffer = true }
+    )
+    vim.keymap.set("n", "<leader>ce", "<cmd>ConjureEval<cr>", { desc = "Evaluate Clojure with Conjure", buffer = true })
+    vim.keymap.set(
+      "v",
+      "<leader>ce",
+      ":ConjureEvalVisual<cr>",
+      { desc = "Evaluate selection with Conjure", buffer = true }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>cef",
+      "<cmd>ConjureEvalFile<cr>",
+      { desc = "Evaluate Clojure File with Conjure", buffer = true }
+    )
+  end,
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-    callback = function()
-        vim.cmd([[
+  callback = function()
+    vim.cmd([[
           highlight Comment cterm=italic gui=italic
           highlight Normal guibg=none
           highlight NonText guibg=none
           highlight Normal ctermbg=none
           highlight NonText ctermbg=none
         ]])
-    end,
+  end,
 })
 
 -- Create an autocommand for Markdown
@@ -79,14 +93,9 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Markdown checklist toggling
     local function toggle()
       vim.go.operatorfunc = "v:lua.require'markdown-togglecheck'.toggle"
-      return 'g@l'
+      return "g@l"
     end
 
-    local function toggle_box()
-      vim.go.operatorfunc = "v:lua.require'markdown-togglecheck'.toggle_box"
-      return 'g@l'
-    end
-
-    vim.keymap.set('n', '<leader>cc', toggle, { expr = true, desc = 'Toggle [C]he[c]kmark' })
+    vim.keymap.set("n", "<leader>cc", toggle, { expr = true, desc = "Toggle [C]he[c]kmark" })
   end,
 })
