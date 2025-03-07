@@ -46,6 +46,11 @@ return {
     "bakpakin/janet.vim",
   },
   {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
     "junegunn/vim-easy-align",
     lazy = true,
     keys = {
