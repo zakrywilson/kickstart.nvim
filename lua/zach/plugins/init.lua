@@ -13,6 +13,22 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+        },
+        format_on_save = {
+          lua = { timeout = 1000 },
+        },
+      })
+      vim.api.nvim_create_user_command("Format", function()
+        require("conform").format({ async = true })
+      end, { desc = "Format current buffer with conform.nvim" })
+    end,
+  },
   -- TODO: Replace this with our own implementation.
   {
     "nfrid/markdown-togglecheck",
