@@ -10,8 +10,8 @@ return {
       require("go").setup({})
     end,
     event = { "CmdlineEnter" },
-    ft = { "go", 'gomod' },
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
   -- TODO: Replace this with our own implementation.
   {
@@ -39,7 +39,7 @@ return {
     config = function()
       vim.cmd([[nmap ga <Plug>(EasyAlign)]])
       vim.cmd([[xmap ga <Plug>(EasyAlign)]])
-    end
+    end,
   },
   {
     "Olical/conjure",
@@ -67,7 +67,7 @@ return {
             labels = "eniumlyhkjstrfcvpwxbgqz",
           })
         end,
-        desc = "Flash"
+        desc = "Flash",
       },
       {
         "<leader>j",
@@ -78,10 +78,10 @@ return {
             labels = "strcfavxpwqgbzeniumyljk",
             search = { mode = "search", forward = true, max_length = 0, wrap = false, multi_window = false },
             label = { after = { 0, 0 } },
-            pattern = "^"
+            pattern = "^",
           })
         end,
-        desc = "Flash down"
+        desc = "Flash down",
       },
       {
         "<leader>k",
@@ -92,10 +92,10 @@ return {
             labels = "strcfavxpwqgbzeniumyljk",
             search = { mode = "search", forward = false, max_length = 0, wrap = false, multi_window = false },
             label = { after = { 0, 0 } },
-            pattern = "^"
+            pattern = "^",
           })
         end,
-        desc = "Flash up"
+        desc = "Flash up",
       },
     },
   },
@@ -109,22 +109,22 @@ return {
 
   -- example: https://codeberg.org/j4de/nvim/src/branch/master/lua/plugins/editor.lua
   {
-    'RRethy/vim-illuminate',
-    event = { 'BufReadPost', 'BufNewFile' },
+    "RRethy/vim-illuminate",
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
       delay = 500,
       large_file_cuttoff = 2000,
-      large_file_overrides = { providers = { 'lsp' } },
+      large_file_overrides = { providers = { "lsp" } },
       min_count_to_highlight = 2,
-      providers = { 'lsp', 'treesitter', 'regex' },
+      providers = { "lsp", "treesitter", "regex" },
       under_cursor = true,
     },
     config = function(_, opts)
-      require('illuminate').configure(opts)
+      require("illuminate").configure(opts)
     end,
   },
 
-  { 'nvim-tree/nvim-web-devicons' },
+  { "nvim-tree/nvim-web-devicons" },
 
   -- Themes
   {
@@ -132,7 +132,7 @@ return {
     name = "github",
     priority = 1000,
     config = function()
-      require('github-theme').setup({
+      require("github-theme").setup({
         options = {
           transparent = true,
         },
@@ -196,8 +196,8 @@ return {
       vim.g.zenburned_transparent_background = true
       vim.g.kanagawabones_transparent_background = true
       vim.g.randombones_transparent_background = true
-      vim.cmd.colorscheme('zenbones')
-    end
+      vim.cmd.colorscheme("zenbones")
+    end,
   },
   {
     "EdenEast/nightfox.nvim",
@@ -274,7 +274,7 @@ return {
       vim.g.gruvbox_material_visual = "red background"
       vim.g.gruvbox_material_palette = "material"
       vim.g.gruvbox_material_transparent_background = 1
-    end
+    end,
   },
   {
     "navarasu/onedark.nvim",
@@ -284,9 +284,9 @@ return {
         transparent = true,
         term_colors = true,
         code_style = {
-          comments  = 'italic',
-          functions = 'bold',
-          keywords  = 'italic',
+          comments = "italic",
+          functions = "bold",
+          keywords = "italic",
         },
         lualine = {
           transparent = true,
@@ -299,7 +299,7 @@ return {
     priority = 1000,
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('kanagawa').setup({
+      require("kanagawa").setup({
         transparent = true,
         commentStyle = { italic = true },
         functionStyle = { bold = true },
@@ -317,10 +317,10 @@ return {
             all = {
               ui = {
                 bg_gutter = "none",
-              }
+              },
             },
-          }
-        }
+          },
+        },
       })
     end,
   },
@@ -332,7 +332,7 @@ return {
     "rmehri01/onenord.nvim",
     priority = 1000,
     config = function()
-      require('onenord').setup({
+      require("onenord").setup({
         disable = {
           background = true,
         },
