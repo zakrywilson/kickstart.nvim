@@ -353,10 +353,19 @@ return {
             all = {
               ui = {
                 bg_gutter = "none",
+                float = {
+                  bg = "none",
+                },
               },
             },
           },
         },
+        overrides = function(colors)
+          return {
+            RenderMarkdownCode = { bg = colors.palette.lotusWhite2 },
+            RenderMarkdownCodeInline = { bg = colors.palette.lotusWhite3 },
+          }
+        end,
       })
     end,
   },
