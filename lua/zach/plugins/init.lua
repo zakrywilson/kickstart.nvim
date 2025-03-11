@@ -40,12 +40,31 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
+      heading = {
+        render_modes = true,
+        icons = {},
+      },
       code = {
+        render_modes = true,
         sign = false,
         style = "full",
         language_name = false,
       },
+      dash = { render_modes = true },
+      bullet = { render_modes = true },
+      checkbox = { render_modes = true },
+      link = {
+        enabled = false,
+        render_modes = true,
+        custom = {},
+      },
     },
+  },
+  {
+    dir = "~/Development/checklists.nvim",
+    config = function()
+      require("checklists")
+    end,
   },
   {
     dir = "~/Development/tmsync/extra/nvim/tmsync.nvim",
