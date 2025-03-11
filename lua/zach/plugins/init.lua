@@ -381,6 +381,12 @@ return {
           return {
             RenderMarkdownCode = { bg = colors.palette.lotusWhite2 },
             RenderMarkdownCodeInline = { bg = colors.palette.lotusWhite3 },
+            RenderMarkdownH1Bg = { bg = colors.palette.lotusWhite2 },
+            RenderMarkdownH2Bg = { bg = colors.palette.lotusWhite1 },
+            RenderMarkdownH3Bg = { bg = colors.palette.lotusWhite0 },
+            RenderMarkdownH4Bg = { bg = colors.palette.lotusWhite3 },
+            RenderMarkdownH5Bg = { bg = colors.palette.lotusWhite3 },
+            RenderMarkdownH6Bg = { bg = colors.palette.lotusWhite3 },
           }
         end,
       })
