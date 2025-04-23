@@ -17,3 +17,5 @@ set wrap linebreak
 
 " Enable spell checking
 set spell
+
+set nonumber
