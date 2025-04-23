@@ -101,6 +101,11 @@ return {
     end,
   },
   {
+    "lowitea/aw-watcher.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {
