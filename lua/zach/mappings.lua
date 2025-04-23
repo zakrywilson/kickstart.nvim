@@ -27,6 +27,14 @@ vim.keymap.set(
   { desc = "[S]earch [G]reg [B]uffer" }
 )
 
+vim.keymap.set("n", "<leader>nf", function()
+  require("telescope.builtin").find_files({
+    prompt_title = "Markdown Files in Google Drive notes",
+    cwd = vim.fn.expand("$GOOGLE_DRIVE/Wiki"),
+    find_command = { "fd", "--type", "f", "--extension", "md" },
+  })
+end, { desc = "Find markdown files in Google Drive notes" })
+
 -- Search in current working directory
 vim.keymap.set(
   { "n", "v" },
