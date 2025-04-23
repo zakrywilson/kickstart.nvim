@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 -- Create an autocommand for Markdown
--- where <leader>hd creates an H3 header with the date.
+-- where <leader>md creates an H3 header with the date.
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
@@ -83,7 +83,7 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.api.nvim_win_set_cursor(0, { row + 2, 0 })
     end
 
-    vim.keymap.set("n", "<leader>hd", insert_markdown_header_with_date, { buffer = true, silent = true })
+    vim.keymap.set("n", "<leader>md", insert_markdown_header_with_date, { buffer = true, silent = true })
   end,
 })
 
