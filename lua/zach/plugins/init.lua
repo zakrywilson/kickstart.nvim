@@ -389,6 +389,7 @@ return {
         },
         overrides = function(colors)
           return {
+            -- Render Markdown plugin
             RenderMarkdownCode = { bg = colors.palette.lotusWhite2 },
             RenderMarkdownCodeInline = { bg = colors.palette.lotusWhite3 },
             RenderMarkdownH1Bg = { bg = colors.palette.lotusWhite2 },
@@ -397,6 +398,10 @@ return {
             RenderMarkdownH4Bg = { bg = colors.palette.lotusWhite3 },
             RenderMarkdownH5Bg = { bg = colors.palette.lotusWhite3 },
             RenderMarkdownH6Bg = { bg = colors.palette.lotusWhite3 },
+            -- Flash plugin
+            FlashLabel = { fg = colors.palette.peachRed, bg = "none", bold = true },
+            FlashMatch = { fg = colors.palette.lotusAqua, bg = "none", bold = true },
+            FlashBackdrop = { fg = colors.palette.fujiGray, bg = "none" },
           }
         end,
       })
