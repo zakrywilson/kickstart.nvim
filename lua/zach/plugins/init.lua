@@ -117,15 +117,19 @@ return {
     },
     keys = {
       {
-        "s",
+        "<leader>s",
         mode = { "n", "x", "o" },
         function()
           ---@diagnostic disable-next-line: missing-fields
           require("flash").jump({
             labels = "eniumlyhkjstrfcvpwxbgqz",
+            search = {
+              mode = "exact",
+              max_length = 2,
+            },
           })
         end,
-        desc = "Flash",
+        desc = "Flash (2-char jump)",
       },
       {
         "<leader>j",
@@ -155,6 +159,7 @@ return {
         end,
         desc = "Flash up",
       },
+      { "<leader>f", false }, -- Disable this.
     },
   },
 
