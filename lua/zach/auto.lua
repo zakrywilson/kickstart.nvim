@@ -96,10 +96,10 @@ vim.api.nvim_create_autocmd("FileType", {
       return "g@l"
     end
 
-    vim.keymap.set("n", "<leader>cc", toggle, { expr = true, desc = "Toggle [C]he[c]kmark" })
-
     vim.keymap.set("n", "<leader>mtm", function()
       require("render-markdown").toggle()
     end, { desc = "Toggle Markdown Rendering" })
+
+    vim.keymap.set("n", "<leader>cc", toggle, { expr = true, desc = "Toggle [C]he[c]kmark" })
   end,
 })
