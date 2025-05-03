@@ -368,42 +368,54 @@ local function telescope_live_grep_open_files()
     prompt_title = "Live Grep in Open Files",
   })
 end
-vim.keymap.set("n", "<leader>s/", telescope_live_grep_open_files, { desc = "[S]earch [/] in Open Files" })
-vim.keymap.set("n", "<leader>ss", require("telescope.builtin").builtin, { desc = "[S]earch [S]elect Telescope" })
-vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
-vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
-vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
-vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
-vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
-vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
-vim.keymap.set("n", "<leader>sT", ":GrepTodos<cr>", { desc = "[S]earch for [T]odos on Git Root" })
-vim.keymap.set("n", "<leader>th", require("telescope.builtin").colorscheme, { desc = "[Th]eme" })
-vim.keymap.set("n", "<leader>sx", require("telescope.builtin").diagnostics, { desc = "[S]earch Diagnosti[x]" })
-vim.keymap.set("n", "<leader>sn", function()
-  require("telescope.builtin").find_files({
-    prompt_title = "Search Nvim",
-    cwd = vim.fn.expand("$DOTDIR/config/nvim"),
-  })
-end, { desc = "[S]earch [N]vim" })
-vim.keymap.set("n", "<leader>sgn", function()
-  require("telescope.builtin").live_grep({
-    prompt_title = "Live Grep Nvim",
-    cwd = vim.fn.expand("$DOTDIR/config/nvim"),
-  })
-end, { desc = "[S]earch [G]rep in [N]vim" })
-vim.keymap.set("n", "<leader>sd", function()
-  require("telescope.builtin").find_files({
-    prompt_title = "Search Dotfiles",
-    cwd = vim.fn.expand("$DOTDIR"),
-  })
-end, { desc = "[S]earch [D]otfiles" })
-vim.keymap.set("n", "<leader>sgd", function()
-  require("telescope.builtin").live_grep({
-    prompt_title = "Live Grep Dotfiles",
-    cwd = vim.fn.expand("$DOTDIR"),
-  })
-end, { desc = "[S]earch [G]rep in [D]otfiles" })
-vim.keymap.set("n", "<leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
+-- Files
+vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
+vim.keymap.set("n", "<leader>fr", require("telescope.builtin").oldfiles, { desc = "[F]ind [R]ecent Files" })
+vim.keymap.set("n", "<leader>fd", function()
+  require("telescope.builtin").find_files({ prompt_title = "Dotfiles", cwd = vim.fn.expand("$DOTDIR") })
+end, { desc = "[F]ind [D]otfiles" })
+vim.keymap.set("n", "<leader>fn", function()
+  require("telescope.builtin").find_files({ prompt_title = "Neovim Config", cwd = vim.fn.expand("$DOTDIR/config/nvim") })
+end, { desc = "[F]ind [N]eovim Config Files" })
+
+-- Project
+vim.keymap.set("n", "<leader>ps", require("telescope.builtin").live_grep, { desc = "[P]roject [S]earch" })
+vim.keymap.set("n", "<leader>pS", ":LiveGrepGitRoot<cr>", { desc = "[P]roject [S]earch Git Root" })
+vim.keymap.set("n", "<leader>pt", ":GrepTodos<cr>", { desc = "[P]roject [T]ODOs" })
+
+-- Buffers
+vim.keymap.set("n", "<leader>bb", require("telescope.builtin").buffers, { desc = "[B]uffer [B]rowse" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "[B]uffer [D]elete" })
+
+-- Git
+vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status, { desc = "[G]it [S]tatus" })
+vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "[G]it [F]iles" })
+vim.keymap.set("n", "<leader>gc", require("telescope.builtin").git_commits, { desc = "[G]it [C]ommits" })
+
+-- Code (LSP)
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
+vim.keymap.set("n", "<leader>cd", require("telescope.builtin").lsp_definitions, { desc = "[C]ode [D]efinition" })
+vim.keymap.set(
+  "n",
+  "<leader>ci",
+  require("telescope.builtin").lsp_implementations,
+  { desc = "[C]ode [I]mplementations" }
+)
+vim.keymap.set("n", "<leader>cs", require("telescope.builtin").lsp_document_symbols, { desc = "[C]ode [S]ymbols" })
+vim.keymap.set(
+  "n",
+  "<leader>cw",
+  require("telescope.builtin").lsp_dynamic_workspace_symbols,
+  { desc = "[C]ode [W]orkspace Symbols" }
+)
+
+-- Toggles
+vim.keymap.set("n", "<leader>td", require("telescope.builtin").diagnostics, { desc = "[T]oggle [D]iagnostics" })
+
+-- Help
+vim.keymap.set("n", "<leader>ht", require("telescope.builtin").colorscheme, { desc = "Change [T]heme" })
+vim.keymap.set("n", "<leader>hc", require("telescope.builtin").commands, { desc = "List [Commands]" })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
