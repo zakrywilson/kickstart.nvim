@@ -16,6 +16,15 @@ end
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = templ_format })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.keymap.set("n", "<leader>ci", "<cmd>GoImports<cr>", { desc = "Run GoImports", buffer = true })
+    vim.keymap.set("n", "<leader>ce", "<cmd>GoIfErr<cr>", { desc = "Run GoIfErr", buffer = true })
+    vim.keymap.set("n", "<leader>cf", "<cmd>GoFmt<cr>", { desc = "Run GoFmt", buffer = true })
+  end,
+})
+
 -- Clojure + Conjure keymappings
 -- Key mapping for Conjure evaluation, specific to Clojure files
 vim.api.nvim_create_autocmd("FileType", {
@@ -96,10 +105,17 @@ vim.api.nvim_create_autocmd("FileType", {
       return "g@l"
     end
 
+    vim.keymap.set("n", "<leader>mtc", toggle, { expr = true, desc = "[T]oggle [C]heckbox" })
+
     vim.keymap.set("n", "<leader>mtm", function()
       require("render-markdown").toggle()
     end, { desc = "Toggle Markdown Rendering" })
 
-    vim.keymap.set("n", "<leader>cc", toggle, { expr = true, desc = "Toggle [C]he[c]kmark" })
+    vim.keymap.set(
+      "n",
+      "<leader>mc",
+      "<Cmd>Telescope checklists<CR>",
+      { buffer = true, silent = true, desc = "Find [C]hecklists" }
+    )
   end,
 })
