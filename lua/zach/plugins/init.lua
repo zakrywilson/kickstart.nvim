@@ -96,8 +96,14 @@ return {
   },
   {
     "Olical/conjure",
+    ft = { "clojure", "fennel", "janet", "racket", "scheme", "lua" },
     config = function()
       vim.g["conjure#mapping#enable_defaults"] = false
+
+      -- Chicken
+      vim.g["conjure#client#scheme#stdio#command"] = "csi -:c"
+      vim.g["conjure#client#scheme#stdio#prompt_pattern"] = "\n-#;%d-> "
+      vim.g["conjure#client#scheme#stdio#value_prefix_pattern"] = false
     end,
   },
   {
