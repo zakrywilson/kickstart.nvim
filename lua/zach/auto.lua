@@ -109,7 +109,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
     vim.keymap.set("n", "<leader>mtm", function()
       require("render-markdown").toggle()
-    end, { desc = "Toggle Markdown Rendering" })
+    end, { desc = "[T]oggle [M]arkdown Rendering" })
 
     vim.keymap.set(
       "n",
