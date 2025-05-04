@@ -176,6 +176,14 @@ return {
     },
   },
 
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    config = function()
+      require("zach.config.luasnip")
+    end,
+  },
+
   -- example: https://codeberg.org/j4de/nvim/src/branch/master/lua/plugins/editor.lua
   {
     "RRethy/vim-illuminate",
