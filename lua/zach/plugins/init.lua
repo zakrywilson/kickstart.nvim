@@ -172,7 +172,7 @@ return {
   {
     "chrisbra/Colorizer",
     keys = {
-      { "<leader>cc", "<cmd>ColorToggle<cr>", desc = "Toggle Colorizer" },
+      { "<leader>tc", "<cmd>ColorToggle<cr>", desc = "[T]oggle [C]olor" },
     },
   },
 
