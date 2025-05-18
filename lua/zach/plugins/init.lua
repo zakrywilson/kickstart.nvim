@@ -53,6 +53,9 @@ return {
       dash = { render_modes = true },
       bullet = { render_modes = true },
       checkbox = { render_modes = true },
+      quote = {
+        render_modes = true,
+      },
       link = {
         enabled = false,
         render_modes = true,
