@@ -92,13 +92,26 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.api.nvim_win_set_cursor(0, { row + 2, 0 })
     end
 
-    vim.keymap.set("n", "<leader>md", insert_markdown_header_with_date, { buffer = true, silent = true })
+    vim.keymap.set(
+      "n",
+      "<leader>md",
+      insert_markdown_header_with_date,
+      { desc = "Insert H3 [D]ate", buffer = true, silent = true }
+    )
   end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
+    -- Checklists in markdown files
+    vim.keymap.set(
+      "n",
+      "<Leader>mc",
+      "<Cmd>ChecklistsTelescope<CR>",
+      { noremap = true, silent = true, desc = "Find [C]hecklists" }
+    )
+
     -- Markdown checklist toggling
     local function toggle()
       vim.go.operatorfunc = "v:lua.require'markdown-togglecheck'.toggle"
@@ -110,12 +123,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>mtm", function()
       require("render-markdown").toggle()
     end, { desc = "[T]oggle [M]arkdown Rendering" })
-
-    vim.keymap.set(
-      "n",
-      "<leader>mc",
-      "<Cmd>Telescope checklists<CR>",
-      { buffer = true, silent = true, desc = "Find [C]hecklists" }
-    )
   end,
 })
