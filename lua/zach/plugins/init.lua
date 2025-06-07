@@ -198,6 +198,10 @@ return {
       min_count_to_highlight = 2,
       providers = { "lsp", "treesitter", "regex" },
       under_cursor = true,
+      filetypes_denylist = {
+        "markdown",
+        "text",
+      },
     },
     config = function(_, opts)
       require("illuminate").configure(opts)
