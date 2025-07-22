@@ -10,8 +10,8 @@ vim.keymap.set("i", "<C-s>", "<Esc><Cmd>w<CR>", { noremap = true, silent = true 
 
 -- Copy to system clipboard
 vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]], { silent = true, desc = "[Y]ank entire line (system clipboard)" }) -- entire line
-vim.keymap.set("n", "<Leader>Y", [[v$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" }) -- to end of line (normal)
-vim.keymap.set("v", "<Leader>Y", [[$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" }) -- to end of line (visual)
+vim.keymap.set("n", "<Leader>Y", [[v$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" })            -- to end of line (normal)
+vim.keymap.set("v", "<Leader>Y", [[$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" })             -- to end of line (visual)
 
 -- Paste without overwriting register 0
 vim.keymap.set("x", "<Leader>p", [["_dP]], { desc = "[P]aste w/o overwriting register 0" })
@@ -55,9 +55,22 @@ function OpenInFinder()
   local escaped_path = vim.fn.shellescape(current_path)
   vim.fn.system("open -R " .. escaped_path)
 end
+
 vim.api.nvim_set_keymap(
   "n",
   "<Leader>of",
   ":lua OpenInFinder()<CR>",
   { noremap = true, silent = true, desc = "[O]pen in [F]inder" }
 )
+
+-- Gopls keymaps
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.keymap.set("n", "<leader>gi", "<Cmd>GoImports<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>;b", "<Cmd>GoBuild<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>;f", "<Cmd>GoTestFile<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>;c", "<Cmd>GoTestSubCase<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>;p", "<Cmd>GoTestPackage<CR>", { buffer = true })
+  end,
+})
