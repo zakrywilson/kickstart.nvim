@@ -30,8 +30,8 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>nf", function()
   require("telescope.builtin").find_files({
     prompt_title = "Markdown Files in Google Drive notes",
-    cwd = vim.fn.expand("$GOOGLE_DRIVE/Wiki"),
-    find_command = { "fd", "--type", "f", "--extension", "md" },
+    cwd = vim.fn.expand("$GOOGLE_DRIVE_PROJECT_NOTES"),
+    find_command = { "bash", "-c", "fd --type f --extension md --exact-depth 1 . | sort -r" },
   })
 end, { desc = "Find markdown files in Google Drive notes" })
 
