@@ -1,20 +1,32 @@
--- source: https://templ.guide/commands-and-tools/ide-support#formatting
 local templ_format = function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local filename = vim.api.nvim_buf_get_name(bufnr)
-  local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+  local filename = vim.api.nvim_buf_get_name(0)
 
-  vim.fn.jobstart(cmd, {
-    on_exit = function()
-      -- Reload the buffer only if it's still the current buffer
-      if vim.api.nvim_get_current_buf() == bufnr then
-        vim.cmd("e!")
+  vim.fn.jobstart({ "templ", "fmt", filename }, {
+    stdout_buffered = true,
+    stderr_buffered = true,
+    on_stderr = function(_, data)
+      if data and #data > 0 then
+        local msg = table.concat(data, "\n")
+        -- Only show real errors
+        if not msg:match("errors=0") then
+          vim.notify("templ fmt error:\n" .. msg, vim.log.levels.ERROR)
+        end
+      end
+    end,
+    on_exit = function(_, code)
+      if code == 0 then
+        vim.cmd("checktime")
+      else
+        vim.notify("templ fmt failed for " .. filename, vim.log.levels.ERROR)
       end
     end,
   })
 end
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = templ_format })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.templ",
+  callback = templ_format,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "go",
