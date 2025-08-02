@@ -10,8 +10,8 @@ vim.keymap.set("i", "<C-s>", "<Esc><Cmd>w<CR>", { noremap = true, silent = true 
 
 -- Copy to system clipboard
 vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]], { silent = true, desc = "[Y]ank entire line (system clipboard)" }) -- entire line
-vim.keymap.set("n", "<Leader>Y", [[v$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" })            -- to end of line (normal)
-vim.keymap.set("v", "<Leader>Y", [[$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" })             -- to end of line (visual)
+vim.keymap.set("n", "<Leader>Y", [[v$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" }) -- to end of line (normal)
+vim.keymap.set("v", "<Leader>Y", [[$h"+y]], { silent = true, desc = "[Y]ank to EOL (system clipboard)" }) -- to end of line (visual)
 
 -- Paste without overwriting register 0
 vim.keymap.set("x", "<Leader>p", [["_dP]], { desc = "[P]aste w/o overwriting register 0" })
@@ -27,6 +27,7 @@ vim.keymap.set(
   { desc = "[S]earch [G]reg [B]uffer" }
 )
 
+-- Choose markdown files from Google Drive directory
 vim.keymap.set("n", "<leader>nf", function()
   require("telescope.builtin").find_files({
     prompt_title = "Markdown Files in Google Drive notes",
@@ -74,3 +75,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>;p", "<Cmd>GoTestPackage<CR>", { buffer = true })
   end,
 })
+
+-- Close quick and location lists
+vim.keymap.set("n", "<leader>q", function()
+  vim.cmd("cclose")
+  vim.cmd("lclose")
+end, { desc = "Close quickfix and location list" })
