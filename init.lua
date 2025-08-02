@@ -369,6 +369,7 @@ local function telescope_live_grep_open_files()
   })
 end
 -- Files
+vim.keymap.set("n", "<leader>fg", telescope_live_grep_open_files, { desc = "[F]ind with [G]rep" })
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 vim.keymap.set("n", "<leader>fr", require("telescope.builtin").oldfiles, { desc = "[F]ind [R]ecent Files" })
 vim.keymap.set("n", "<leader>fd", function()
