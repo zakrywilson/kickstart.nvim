@@ -18,10 +18,17 @@ return {
     config = function()
       require("conform").setup({
         formatters_by_ft = {
+          css = { "prettierd" },
+          elixir = { "mix" },
+          javascript = { "prettierd" },
           lua = { "stylua" },
+          typescript = { "prettierd" },
         },
         format_on_save = {
+          css = { timeout = 1000 },
+          javascript = { timeout = 1000 },
           lua = { timeout = 1000 },
+          typescript = { timeout = 1000 },
         },
       })
       vim.api.nvim_create_user_command("Format", function()
