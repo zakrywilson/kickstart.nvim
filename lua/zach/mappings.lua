@@ -73,6 +73,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>;f", "<Cmd>GoTestFile<CR>", { buffer = true })
     vim.keymap.set("n", "<leader>;c", "<Cmd>GoTestSubCase<CR>", { buffer = true })
     vim.keymap.set("n", "<leader>;p", "<Cmd>GoTestPackage<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>F", "<Cmd>GoFmt<CR>", { buffer = true })
   end,
 })
 
