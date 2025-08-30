@@ -467,4 +467,27 @@ return {
       })
     end,
   },
+  {
+    "maxmx03/solarized.nvim",
+    lazy = false,
+    priority = 1000,
+    ---@type solarized.config
+    opts = {
+      variant = "autumn",
+      on_colors = function(colors, _)
+        colors.base03 = "#112125"
+        return colors
+      end,
+      highlights = function(colors)
+        return {
+          Normal = { fg = colors.base0, bg = colors.base03 },
+        }
+      end,
+    },
+    config = function(_, opts)
+      vim.o.termguicolors = true
+      require("solarized").setup(opts)
+      vim.cmd.colorscheme("solarized")
+    end,
+  },
 }
