@@ -624,8 +624,6 @@ mason_lspconfig.setup({
   ensure_installed = vim.tbl_keys(servers),
 })
 
-mason_lspconfig.setup()
-
 -- Set up servers manually
 for server_name, config in pairs(servers) do
   require("lspconfig")[server_name].setup({
