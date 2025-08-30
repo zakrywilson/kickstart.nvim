@@ -430,6 +430,8 @@ vim.defer_fn(function()
       "clojure",
       "cpp",
       "elixir",
+      "heex", -- for Elixir
+      "eex", -- for Elixir
       "go",
       "javascript",
       "lua",
@@ -574,6 +576,7 @@ require("mason-lspconfig").setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
+  elixirls = {},
   gopls = {
     gopls_cmd = { "~/go/bin/gopls" },
     fillstruct = "gopls",
