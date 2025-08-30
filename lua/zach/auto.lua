@@ -28,6 +28,19 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   callback = templ_format,
 })
 
+-- Disable Sleuth for TEMPL
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "templ",
+  callback = function()
+    vim.b.sleuth_automatic = 0
+    -- Reapply our desired indentation
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = false
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "go",
   callback = function()
