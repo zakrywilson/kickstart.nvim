@@ -23,12 +23,20 @@ return {
           javascript = { "prettierd" },
           lua = { "stylua" },
           typescript = { "prettierd" },
+          edn = { "zprint" },
         },
         format_on_save = {
           css = { timeout = 1000 },
           javascript = { timeout = 1000 },
           lua = { timeout = 1000 },
           typescript = { timeout = 1000 },
+          edn = { timeout = 1000 },
+        },
+        formatters = {
+          zprint = {
+            command = "zprint",
+            stdin = true,
+          },
         },
       })
       vim.api.nvim_create_user_command("Format", function()
