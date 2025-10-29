@@ -498,4 +498,18 @@ return {
       vim.cmd.colorscheme("solarized")
     end,
   },
+  { "miikanissi/modus-themes.nvim", priority = 1000 },
+  {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "ramojus/mellifluous.nvim",
+    -- version = "v0.*", -- uncomment for stable config (some features might be missed if/when v1 comes out)
+    config = function()
+      require("mellifluous").setup({}) -- optional, see configuration section.
+    end,
+  },
+  { "kdheepak/monochrome.nvim", priority = 1000 },
 }
