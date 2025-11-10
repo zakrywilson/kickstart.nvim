@@ -19,18 +19,17 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           css = { "prettierd" },
+          edn = { "zprint" },
           elixir = { "mix" },
           javascript = { "prettierd" },
           lua = { "stylua" },
-          typescript = { "prettierd" },
-          edn = { "zprint" },
         },
         format_on_save = {
           css = { timeout = 1000 },
+          edn = { timeout = 1000 },
           javascript = { timeout = 1000 },
           lua = { timeout = 1000 },
           typescript = { timeout = 1000 },
-          edn = { timeout = 1000 },
         },
         formatters = {
           zprint = {
