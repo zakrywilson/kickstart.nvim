@@ -15,7 +15,7 @@ set showbreak=↪
 " Break on entire word
 set wrap linebreak
 
-" Enable spell checking
-set spell
+" Disable spell checking
+set nospell
 
 set nonumber
