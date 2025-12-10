@@ -23,6 +23,7 @@ return {
           elixir = { "mix" },
           javascript = { "prettierd" },
           lua = { "stylua" },
+          edn = { "zprint" },
         },
         format_on_save = {
           css = { timeout = 1000 },
