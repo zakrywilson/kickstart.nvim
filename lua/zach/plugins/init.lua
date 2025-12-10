@@ -284,32 +284,6 @@ return {
     },
   },
   {
-    "zenbones-theme/zenbones.nvim",
-    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-    -- In Vim, compat mode is turned on as Lush only works in Neovim.
-    dependencies = "rktjmp/lush.nvim",
-    lazy = false,
-    priority = 1000,
-    -- you can set set configuration options here
-    config = function()
-      vim.g.zenbones_darken_comments = 45
-      vim.g.zenwritten_transparent_background = true
-      vim.g.neobones_transparent_background = true
-      vim.g.vimbones_transparent_background = true
-      vim.g.rosebones_transparent_background = true
-      vim.g.forestbones_transparent_background = true
-      vim.g.nordbones_transparent_background = true
-      vim.g.tokyobones_transparent_background = true
-      vim.g.seoulbones_transparent_background = true
-      vim.g.duckbones_transparent_background = true
-      vim.g.zenburned_transparent_background = true
-      vim.g.kanagawabones_transparent_background = true
-      vim.g.randombones_transparent_background = true
-      vim.cmd.colorscheme("zenbones")
-    end,
-  },
-  {
     "EdenEast/nightfox.nvim",
     name = "nightfox",
     priority = 1000,
